@@ -11,4 +11,4 @@ npm run generate:pdf
 
 Generated file:
 
-`/home/runner/work/verbose-umbrella/verbose-umbrella/output/integrated-team-handout.pdf`
+`output/integrated-team-handout.pdf`

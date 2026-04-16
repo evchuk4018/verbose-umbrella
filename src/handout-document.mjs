@@ -186,11 +186,6 @@ export function HandoutDocument({ imageSources = IMAGE_URLS }) {
           { style: styles.integrationText },
           'Scouting informs Programming and Build with objective data; Build gives Programming reliable hardware to execute strategic plans; Programming turns scouting intelligence into actionable autonomous and defensive behavior. Together, this is a night-and-day improvement in match prep, alliance selection, and student development.'
         )
-      ),
-      React.createElement(
-        Text,
-        { style: styles.footer },
-        'Standard Letter format • Designed for duplex print (front side)'
       )
     ),
     React.createElement(
@@ -238,11 +233,6 @@ export function HandoutDocument({ imageSources = IMAGE_URLS }) {
         React.createElement(Bullet, { text: 'Defensive autos built from real opponent path data' }),
         React.createElement(Bullet, { text: 'Alliance selection strengthened via TBA + Statbotics inputs' }),
         React.createElement(Bullet, { text: 'New students learn faster by comparing what works across teams' })
-      ),
-      React.createElement(
-        Text,
-        { style: styles.footer },
-        'Standard Letter format • Designed for duplex print (back side)'
       )
     )
   );

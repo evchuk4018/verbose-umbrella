@@ -4,8 +4,6 @@ import { IMAGE_URLS } from './image-urls.mjs';
 
 Font.registerHyphenationCallback((word) => [word]);
 
-const defaultImages = IMAGE_URLS;
-
 const styles = StyleSheet.create({
   page: {
     padding: 28,
@@ -118,7 +116,7 @@ function VisualTile({ src, caption }) {
   );
 }
 
-export function HandoutDocument({ imageSources = defaultImages }) {
+export function HandoutDocument({ imageSources = IMAGE_URLS }) {
   return React.createElement(
     Document,
     null,

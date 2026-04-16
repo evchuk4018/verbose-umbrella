@@ -10,10 +10,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const outputDir = path.resolve(__dirname, '../output');
 const outputPath = path.join(outputDir, 'integrated-team-handout.pdf');
+const IMAGE_FETCH_TIMEOUT_MS = 4000;
 async function canFetchImage(url) {
   try {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 4000);
+    const timeout = setTimeout(() => controller.abort(), IMAGE_FETCH_TIMEOUT_MS);
     const response = await fetch(url, { method: 'GET', signal: controller.signal });
     clearTimeout(timeout);
     return response.ok ? url : null;

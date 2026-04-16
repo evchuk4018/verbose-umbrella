@@ -3,7 +3,7 @@ import { Document, Font, Image, Page, StyleSheet, Text, View } from '@react-pdf/
 
 Font.registerHyphenationCallback((word) => [word]);
 
-const images = [
+const defaultImages = [
   'https://github.com/user-attachments/assets/08dcf66a-8f49-4d61-8441-d5a33060aa84',
   'https://github.com/user-attachments/assets/3d4ccf6f-0b4d-4c69-a1e9-2176835b6ce5',
   'https://github.com/user-attachments/assets/04fe239a-5091-4d29-bee2-0426a4ac1ca2',
@@ -77,6 +77,21 @@ const styles = StyleSheet.create({
     fontSize: 8,
     color: '#475569',
   },
+  imagePlaceholder: {
+    width: '100%',
+    height: 148,
+    border: '1 dashed #94a3b8',
+    borderRadius: 3,
+    marginBottom: 4,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 8,
+  },
+  imagePlaceholderText: {
+    fontSize: 8,
+    color: '#64748b',
+    textAlign: 'center',
+  },
   footer: {
     marginTop: 4,
     fontSize: 8,
@@ -88,7 +103,26 @@ function Bullet({ text }) {
   return React.createElement(Text, { style: styles.bullet }, `• ${text}`);
 }
 
-export function HandoutDocument() {
+function VisualTile({ src, caption }) {
+  return React.createElement(
+    View,
+    { style: styles.imageTile },
+    src
+      ? React.createElement(Image, { style: styles.image, src })
+      : React.createElement(
+          View,
+          { style: styles.imagePlaceholder },
+          React.createElement(
+            Text,
+            { style: styles.imagePlaceholderText },
+            'Image unavailable in this environment. Use provided event image for final print.'
+          )
+        ),
+    React.createElement(Text, { style: styles.imageCaption }, caption)
+  );
+}
+
+export function HandoutDocument({ imageSources = defaultImages }) {
   return React.createElement(
     Document,
     null,
@@ -180,34 +214,26 @@ export function HandoutDocument() {
         React.createElement(
           View,
           { style: styles.col },
-          React.createElement(
-            View,
-            { style: styles.imageTile },
-            React.createElement(Image, { style: styles.image, src: images[0] }),
-            React.createElement(Text, { style: styles.imageCaption }, 'EDD strategic decisions reference')
-          ),
-          React.createElement(
-            View,
-            { style: styles.imageTile },
-            React.createElement(Image, { style: styles.image, src: images[1] }),
-            React.createElement(Text, { style: styles.imageCaption }, 'Scouting + strategy visual reference')
-          )
+          React.createElement(VisualTile, {
+            src: imageSources[0],
+            caption: 'EDD strategic decisions reference',
+          }),
+          React.createElement(VisualTile, {
+            src: imageSources[1],
+            caption: 'Scouting + strategy visual reference',
+          })
         ),
         React.createElement(
           View,
           { style: styles.col },
-          React.createElement(
-            View,
-            { style: styles.imageTile },
-            React.createElement(Image, { style: styles.image, src: images[2] }),
-            React.createElement(Text, { style: styles.imageCaption }, 'Build-program integration reference')
-          ),
-          React.createElement(
-            View,
-            { style: styles.imageTile },
-            React.createElement(Image, { style: styles.image, src: images[3] }),
-            React.createElement(Text, { style: styles.imageCaption }, 'Programming-scouting integration reference')
-          )
+          React.createElement(VisualTile, {
+            src: imageSources[2],
+            caption: 'Build-program integration reference',
+          }),
+          React.createElement(VisualTile, {
+            src: imageSources[3],
+            caption: 'Programming-scouting integration reference',
+          })
         )
       ),
       React.createElement(

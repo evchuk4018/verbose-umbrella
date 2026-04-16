@@ -1,0 +1,27 @@
+{
+  "name": "verbose-umbrella",
+  "version": "1.0.0",
+  "description": "React PDF handout generator",
+  "main": "src/generate-pdf.mjs",
+  "scripts": {
+    "generate:pdf": "node src/generate-pdf.mjs",
+    "build": "npm run generate:pdf",
+    "test": "node -e \"console.log('No tests configured')\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evchuk4018/verbose-umbrella.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/evchuk4018/verbose-umbrella/issues"
+  },
+  "homepage": "https://github.com/evchuk4018/verbose-umbrella#readme",
+  "dependencies": {
+    "@react-pdf/renderer": "^4.5.1",
+    "react": "^19.2.5"
+  }
+}

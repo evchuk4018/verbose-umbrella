@@ -140,7 +140,7 @@ export function HandoutDocument({ imageSources = IMAGE_URLS }) {
           text: 'This year, our scouting app lets admins monitor coverage, assign matches, and review pre-scouting.',
         }),
         React.createElement(Bullet, {
-          text: 'We collect autonomous path data, averaged route trends, and scoring heatmaps for every team.',
+          text: 'We collect autonomous path data, average route trends, and scoring heatmaps for every team.',
         }),
         React.createElement(Bullet, {
           text: 'Team lists come from TBA and live EPA comes from Statbotics, improving real-time match prep and alliance selection.',
